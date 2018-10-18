@@ -1,0 +1,10 @@
+spring:
+ application:
+  name: chor-server
+ cloud:
+  config:
+   profile: dev
+   label: master
+   discovery:
+    enabled: true
+    serviceId: config-server
