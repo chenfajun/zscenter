@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: zuul-server
+  cloud:
+    config:
+      uri: http://134.83.2.203:8888
+      fail-fast: true
+  profiles:
+    active: dev
