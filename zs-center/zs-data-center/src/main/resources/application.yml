@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: zs-data-center
+      # earliest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，从头开始消费
+      # kafka.consumer.auto.offset.reset latest:当各分区下有已提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
+      # none:topic各分区都存在已提交的offset时，从offset后开始消费；只要有一个分区不存在已提交的offset，则抛出异常
+  #10.161.11.207:7667,10.161.11.208:7667,10.161.11.209:7667
+  #134.83.2.203:9090,134.83.2.203:9091,134.83.2.203:9092
+  #134.83.3.40:9090,134.83.3.39:9090,134.83.3.38:9090
+  kafka:
+    bootstrap-servers: 192.168.1.129:9092,192.168.1.127:9092,192.168.1.128:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      auto:
+        offset:
+          reset:  latest
+      group-id: test
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+server:
+  port: 8223
+eureka:
+  client:
+    serviceUrl:
+      defaultZone:  http://localhost:8761/eureka/
