@@ -13,7 +13,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
  * @Date: 2018/9/13下午7:30
  * @Descripton:
  */
-public class ConsumerTest {
+public class ConsumerMain {
     public static void main(String[] args) throws InterruptedException {
         Properties props = new Properties();
 
